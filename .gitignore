@@ -1,0 +1,17 @@
+# Compiled Object files
+*.o
+
+# Compiled Static libraries
+*.a
+
+# Executables
+*.exe
+*.x
+
+# Others
+.DS_Store
+.ipynb_checkpoints
+__pycache__
+*.pyc
+*.dSYM
+
