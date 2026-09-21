@@ -14,13 +14,13 @@ program foo
     ! print *, observations(0)
 
     ! from before
-    valid_count = 0
-    sum_value   = 0.0
-    do i = 1, size(observations)
-        if (observations(i) == missing_value) cycle
-        valid_count = valid_count + 1
-        sum_value   = sum_value + observations(i)
-    end do
+    !valid_count = 0
+    !sum_value   = 0.0
+    !do i = 1, size(observations)
+    !    if (observations(i) == missing_value) cycle
+    !    valid_count = valid_count + 1
+    !    sum_value   = sum_value + observations(i)
+    !end do
 
     ! masking
     ! any_missing = any(values == missing_value)
