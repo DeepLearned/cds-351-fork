@@ -2,12 +2,16 @@ program arrays
 
    implicit none
 
+   integer :: i, j
    ! Array constructors
-   ! initialize small explicit sequences
+   ! initialize small explicit sequences (is this a constant array?)
    integer :: fibonacci(6) = [1, 1, 2, 3, 5, 8]
 
    ! use for mathematical formulas using an implied DO loop
    integer :: evens(50) = [(i * 2, i = 1, 50)]
+   ! better
+   ! integer :: evens(50)
+   ! evens = [(i * 2, i = 1, 50)]
 
    ! constant character arrays
    character(len=7), dimension(3), parameter :: &
@@ -21,8 +25,9 @@ program arrays
    ! g(1,:) = 0  ! Modern scalar broadcast: Fills the entire first row with 0
    ! g(2,:) = 1  ! Fills the entire second row with 1
 
-   ! Legacy: initialize in-place using implied do-loops
+   ! *Legacy* : initialize in-place using implied do-loops
    integer, dimension(10)         :: ints = (/(j, j=1,10)/)
    real, dimension(10)            :: floats = (/(real(j), j=1,10)/)
+
    
 end program arrays
