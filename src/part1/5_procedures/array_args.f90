@@ -1,7 +1,7 @@
 program arr
    implicit none
    real :: a(5)
-   !try this instead:
+   !you can try this instead:
    !real :: a(-2:2)
    a = [1,2,3,4,5]
    call print_element(a)
