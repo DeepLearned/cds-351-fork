@@ -1,0 +1,6 @@
+&sim_specs
+    input_file = "observations.txt"
+    output_file = "summary.txt"
+    max_records = 5
+    threshold = 12.5
+/
