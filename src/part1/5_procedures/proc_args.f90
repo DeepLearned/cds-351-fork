@@ -1,5 +1,15 @@
 program foo
     ! Test the functions below
+    implicit none
+    integer :: n = 5
+    real, allocatable :: values(:)
+
+    allocate(values(n))
+    values = [1, 2, 3, 4, 5]
+    
+    print *, mean_value_explicit(n, values)
+    print *, mean_value_assumed(values)
+    
 contains
 
 pure function mean_value_explicit(n, values) result(mean)
