@@ -3,7 +3,7 @@ program test_basicMath
    implicit none
    real avg
 
-   print *, add_integers(1, 2)
+   print *, add_numbers(1, 2)
    call calc_avg(1., 3., avg)
    print *,avg
 
