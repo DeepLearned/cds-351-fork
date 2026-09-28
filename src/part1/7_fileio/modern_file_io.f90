@@ -57,19 +57,20 @@ contains
         end if
 
         ! write a header to the output file
-        write(out_unit, "(a)") "--- filtered simulation summary ---"
+        write(out_unit, "(a)") "-------- simulation summary -------"
         write(out_unit, "(a, f6.2)") "threshold cutoff: ", threshold
         write(out_unit, "(a)") "-----------------------------------"
 
         ! data processing loop
+        ! we don't know how many items in the file, so we use a while loop
         record_count = 0
         do
-            ! check if we have hit the maximum records limit 
+        ! Are we done, if so exit
             if (record_count >= max_records) exit
 
             read(in_unit, *, iostat=ios) current_value
             
-            ! catch end-of-file safely (negative value for iostat) or execution errors (positive value)
+            ! catch end-of-file safely (iostat<0) or execution errors (iostat>0)
             if (ios < 0) then
                 exit ! end of file reached normally
             elseif (ios > 0) then
@@ -78,7 +79,7 @@ contains
 
             record_count = record_count + 1
 
-            ! save records matching conditions
+            ! save records to out_unit
             if (current_value >= threshold) then
                 write(out_unit, "(a, i3, a, f6.2)") "record #", record_count, ": ", current_value
             end if
